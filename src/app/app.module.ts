@@ -9,7 +9,10 @@ import { IonicStorageModule, Storage } from '@ionic/storage';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-
+import { LoginPage } from '../pages/login/login';
+import { OrdersListPage } from '../pages/orders-list/orders-list';
+import { AuthService } from "../providers/auth-service";
+import { ApplicationService } from '../providers/application';
 import { Items } from '../mocks/providers/items';
 import { Settings } from '../providers/providers';
 import { User } from '../providers/providers';
@@ -39,7 +42,9 @@ export function provideSettings(storage: Storage) {
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    LoginPage,
+    OrdersListPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +61,9 @@ export function provideSettings(storage: Storage) {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    LoginPage,
+    OrdersListPage
   ],
   providers: [
     Api,
@@ -66,6 +73,9 @@ export function provideSettings(storage: Storage) {
     GoogleMaps,
     SplashScreen,
     StatusBar,
+    AuthService,
+    ApplicationService,
+
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler }
