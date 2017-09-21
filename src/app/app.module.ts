@@ -10,6 +10,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { LoginPage } from '../pages/login/login';
+import { HomePage } from '../pages/home/home';
 import { OrdersListPage } from '../pages/orders-list/orders-list';
 import { AuthService } from "../providers/auth-service";
 import { ApplicationService } from '../providers/application';
@@ -18,6 +19,8 @@ import { Settings } from '../providers/providers';
 import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
+
+import { LogoutPage } from '../pages/logout/logout';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -43,8 +46,10 @@ export function provideSettings(storage: Storage) {
 @NgModule({
   declarations: [
     MyApp,
+    HomePage,
     LoginPage,
-    OrdersListPage
+    OrdersListPage,
+    LogoutPage
   ],
   imports: [
     BrowserModule,
@@ -63,7 +68,9 @@ export function provideSettings(storage: Storage) {
   entryComponents: [
     MyApp,
     LoginPage,
-    OrdersListPage
+    OrdersListPage,
+    HomePage,
+    LogoutPage
   ],
   providers: [
     Api,

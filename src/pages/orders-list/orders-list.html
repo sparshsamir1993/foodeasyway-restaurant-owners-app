@@ -7,12 +7,27 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>orders-list</ion-title>
+      <ion-grid>
+          <ion-row>
+              <ion-col col-8>
+                  <ion-title>Orders</ion-title>
+              </ion-col>
+          </ion-row>
+      </ion-grid>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+        <ion-list>
+            <ion-item-group menuClose  *ngFor="let order of orders" >
+                <ion-item >
+                    {{order.id}}
+                    
+                </ion-item>
+
+            </ion-item-group>
+        </ion-list>
 
 </ion-content>

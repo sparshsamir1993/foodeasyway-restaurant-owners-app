@@ -14,7 +14,7 @@ import { ApplicationService } from '../../providers/application';
   templateUrl: 'orders-list.html',
 })
 export class OrdersListPage {
-	orders = [];
+	orders;
   constructor(public navCtrl: NavController, public navParams: NavParams, public appy: ApplicationService) {
   	this.getOrderList();
   }
@@ -26,7 +26,7 @@ export class OrdersListPage {
 
   getOrderList(){
   	this.appy.getOrders().then((data)=>{
-  		console.log(data);
+  		this.orders = data;
   	})
   	 .catch((err)=>{
           console.log(err);
