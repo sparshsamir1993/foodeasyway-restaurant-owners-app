@@ -22,7 +22,7 @@
 <ion-content padding>
         <ion-list>
             <ion-item-group menuClose  *ngFor="let order of orders" >
-                <ion-item >
+                <ion-item (click)="seeOrder()" >
                     {{order.id}}
                     
                 </ion-item>

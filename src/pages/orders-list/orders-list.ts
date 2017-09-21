@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApplicationService } from '../../providers/application';
+import { OrderDetailsPage } from '../order-details/order-details';
 /**
  * Generated class for the OrdersListPage page.
  *
@@ -16,11 +17,12 @@ import { ApplicationService } from '../../providers/application';
 export class OrdersListPage {
 	orders;
   constructor(public navCtrl: NavController, public navParams: NavParams, public appy: ApplicationService) {
-  	this.getOrderList();
+  	
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrdersListPage');
+    this.getOrderList();
   }
 
 
@@ -32,5 +34,9 @@ export class OrdersListPage {
           console.log(err);
       });
   }
-  
+   
+
+   seeOrder(){
+     this.navCtrl.push(OrderDetailsPage, {user: this.orders.user, orderItems: this.orders.order_items, order: this.orders})
+   } 
 }

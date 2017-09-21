@@ -12,6 +12,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { OrdersListPage } from '../pages/orders-list/orders-list';
+import { OrderDetailsPage } from '../pages/order-details/order-details';
 import { AuthService } from "../providers/auth-service";
 import { ApplicationService } from '../providers/application';
 import { Items } from '../mocks/providers/items';
@@ -49,7 +50,8 @@ export function provideSettings(storage: Storage) {
     HomePage,
     LoginPage,
     OrdersListPage,
-    LogoutPage
+    LogoutPage,
+    OrderDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -70,7 +72,8 @@ export function provideSettings(storage: Storage) {
     LoginPage,
     OrdersListPage,
     HomePage,
-    LogoutPage
+    LogoutPage,
+    OrderDetailsPage
   ],
   providers: [
     Api,
